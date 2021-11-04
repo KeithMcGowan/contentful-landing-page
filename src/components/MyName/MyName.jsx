@@ -1,20 +1,21 @@
 import React from "react";
 import { useContentful } from "../../hooks/useContentful";
+import { Person } from "../Person/Person";
 import "./MyName.css";
 
 const query = `
-query {
-  person2(id: "3lsIww5Gtd8YbhXsgXoQj5") {
-    name
-    age
+query{
+    person2(id: "3lsIww5Gtd8YbhXsgXoQj5") {
+      name
+      socialFacebook
+      socialGithub
+      socialLinkedin
+    }
   }
-}
 `;
 
 export const MyName = () => {
   let { data, errors } = useContentful(query);
-  //   console.log(data.person2);
-  //   const { name, age } = data.person2;
 
   if (errors)
     return (
@@ -24,9 +25,11 @@ export const MyName = () => {
     );
   if (!data) return <span>Loading...</span>;
 
+  const { person2 } = data;
+
   return (
     <>
-      Hi, I'm {data.person2.name} and I am {data.person2.age} years old.
+      <Person person={person2} />
     </>
   );
 };
