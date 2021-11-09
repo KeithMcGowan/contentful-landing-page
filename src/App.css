@@ -1,22 +1,13 @@
 :root {
+  --header-color: #282c34;
   --white-color: #ffffff;
+  --link-color: #047895;
   --hover-color: #61dbfb;
   --error-color: #ff0000;
 }
 
 .App {
   text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 35vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 /* Errors */
@@ -31,6 +22,21 @@
 }
 
 .fab:hover,
-.fab:focus-visible {
+.fab:focus,
+.fab:focus-visible,
+.fab:active{
+  color: var(--hover-color);
+}
+
+/* Links */
+a,
+a::before,
+a::after {
+  color: var(--link-color);
+}
+
+a:hover,
+a:focus,
+a:active {
   color: var(--hover-color);
 }

@@ -1,6 +1,21 @@
 @import url("../../App.css");
 
-.socialLinks {
-    position: absolute;
-    left: 50px;
+.person {
+  background-color: var(--header-color);
+  min-height: 35vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.social-links {
+  position: absolute;
+  left: 50px;
+}
+
+.profile-pic {
+  margin: 70px 0 20px;
 }

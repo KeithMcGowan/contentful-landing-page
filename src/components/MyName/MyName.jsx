@@ -1,21 +1,11 @@
 import React from "react";
 import { useContentful } from "../../hooks/useContentful";
 import { Person } from "../Person/Person";
+import { headerQuery } from "../../contentfulQueries/headerQuery";
 import "./MyName.css";
 
-const query = `
-query{
-    person2(id: "3lsIww5Gtd8YbhXsgXoQj5") {
-      name
-      socialFacebook
-      socialGithub
-      socialLinkedin
-    }
-  }
-`;
-
 export const MyName = () => {
-  let { data, errors } = useContentful(query);
+  let { data, errors } = useContentful(headerQuery);
 
   if (errors)
     return (
@@ -28,8 +18,8 @@ export const MyName = () => {
   const { person2 } = data;
 
   return (
-    <>
+    <div className="person">
       <Person person={person2} />
-    </>
+    </div>
   );
 };
