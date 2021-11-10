@@ -1,0 +1,32 @@
+@import url("../../App.css");
+
+p,
+h3,
+h5 {
+  color: var(--black-color);
+}
+
+.bookmark {
+  margin: 100px auto 0;
+  max-width: 1440px;
+}
+
+.bookmark-card {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  padding: 10px 0;
+}
+
+.bookmark-card h5 {
+    margin: 5px 0;
+}
+
+.tag {
+  color: var(--tag-text-color);
+  background: var(--tag-color);
+  border: 1px solid var(--tag-text-color);
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 25px;
+}

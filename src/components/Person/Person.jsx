@@ -1,13 +1,13 @@
-import React, { Children } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import "./Person.css";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import "./Person.css";
 
 function FacebookLink({ url }) {
   return (
     <a href={url}>
-      <i className="fab fa-facebook-square fa-lg"></i>
+      <i className="fab fa-facebook-square fa-2x"></i>
     </a>
   );
 }
@@ -15,7 +15,7 @@ function FacebookLink({ url }) {
 function GithubLink({ url }) {
   return (
     <a href={url}>
-      <i className="fab fa-github-square fa-lg"></i>
+      <i className="fab fa-github-square fa-2x"></i>
     </a>
   );
 }
@@ -23,7 +23,7 @@ function GithubLink({ url }) {
 function LinkedinLink({ url }) {
   return (
     <a href={url}>
-      <i className="fab fa-linkedin fa-lg"></i>
+      <i className="fab fa-linkedin fa-2x"></i>
     </a>
   );
 }
@@ -34,7 +34,6 @@ const RICHTEXT_OPTIONS = {
       return <p>{children}</p>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
-      console.log(node);
       return <a href={node.data.uri}>{children}</a>;
     },
   },
@@ -45,7 +44,7 @@ export const Person = ({ person }) => {
     person;
 
   return (
-    <div>
+    <div className="person">
       <h2>{name}</h2>
       {documentToReactComponents(bio.json, RICHTEXT_OPTIONS)}
       <div className="social-links">

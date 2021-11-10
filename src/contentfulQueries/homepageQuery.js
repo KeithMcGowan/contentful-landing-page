@@ -1,4 +1,4 @@
-export const headerQuery = `
+export const homepageQuery = `
 query{
   person2(id: "3lsIww5Gtd8YbhXsgXoQj5") {
     name
@@ -15,6 +15,22 @@ query{
         format: PNG
         width: 350
       })
+    }
+  }
+
+  bookmarkCollection {
+    items {
+      sys {
+        id
+      }
+      title
+      url
+      comment
+      tagsCollection {
+        items {
+          title
+        }
+      }
     }
   }
 }
