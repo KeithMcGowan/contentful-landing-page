@@ -21,7 +21,7 @@ query($isPreview: Boolean=false) {
   
   favoriteTagCollection: tagCollection(where: {
     title_contains: "favorite"
-  }, limit: 1) {
+  }, limit: 5) {
     items {
       title
       linkedFrom {
@@ -42,7 +42,7 @@ fragment bookmarkFields on Bookmark {
   title
   url
   comment
-  tagsCollection(limit: 10) {
+  tagsCollection(limit: 5) {
     items {
       title
     }

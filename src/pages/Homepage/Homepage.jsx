@@ -23,7 +23,10 @@ export const Homepage = () => {
   if (!data) return <span>Loading...</span>;
 
   const { person2, allBookmarks, favoriteTagCollection } = data;
-  const favoriteTags = favoriteTagCollection.items[0];
+
+  const favoriteTags = favoriteTagCollection.items.map((eachItem) => {
+    return eachItem.linkedFrom.bookmarkCollection.items[0];
+  });
 
   return (
     <div className="homepage">
@@ -38,10 +41,7 @@ export const Homepage = () => {
         </label>
       </div>
       <Person person={person2} />
-      <Bookmarks
-        bookmarks={favoriteTags.linkedFrom.bookmarkCollection.items}
-        headline="Favorite Bookmarks"
-      />
+      <Bookmarks bookmarks={favoriteTags} headline="Favorite Bookmarks" />
       <Bookmarks bookmarks={allBookmarks.items} headline="My Bookmarks" />
     </div>
   );
