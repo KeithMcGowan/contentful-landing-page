@@ -3,6 +3,7 @@
 }
 
 :root {
+  /* Colors */
   --header-color: #282c34;
   --black-color: #000000;
   --white-color: #ffffff;
@@ -12,6 +13,12 @@
   --tag-color: #61dbfb;
   --tag-text-color: #047895;
   --error-color: #ff0000;
+
+  /* Breakpoints */
+  /* --sm: 400px;
+  --md: 800px;
+  --lg: 1200px;
+  --xl: 1400px; */
 }
 
 h2 {

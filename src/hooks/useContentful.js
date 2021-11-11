@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
-const { REACT_APP_SPACE_ID, REACT_APP_CDA_TOKEN } = process.env;
+const { REACT_APP_SPACE_ID, REACT_APP_CDA_TOKEN, REACT_APP_CPA_TOKEN } =
+  process.env;
 
-export const useContentful = (query) => {
+export const useContentful = (query, isPreview) => {
   let [data, setData] = useState(null);
   let [errors, setErrors] = useState(null);
 
@@ -14,9 +15,11 @@ export const useContentful = (query) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${REACT_APP_CDA_TOKEN}`,
+            Authorization: `Bearer ${
+              isPreview ? REACT_APP_CPA_TOKEN : REACT_APP_CDA_TOKEN
+            }`,
           },
-          body: JSON.stringify({ query }),
+          body: JSON.stringify({ query, variables: { isPreview } }),
         }
       )
       .then((res) => res.json())
@@ -25,7 +28,7 @@ export const useContentful = (query) => {
         if (data) setData(data);
       })
       .catch((err) => setErrors([err]));
-  }, [query]);
+  }, [query, isPreview]);
 
   return { data, errors };
 };
