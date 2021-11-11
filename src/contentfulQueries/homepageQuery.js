@@ -42,7 +42,7 @@ fragment bookmarkFields on Bookmark {
   title
   url
   comment
-  tagsCollection(limit: 5) {
+  tagsCollection(limit: 10) {
     items {
       title
     }
