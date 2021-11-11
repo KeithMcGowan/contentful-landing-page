@@ -11,22 +11,42 @@ h5 {
   max-width: 1440px;
 }
 
+.bookmark-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
 .bookmark-card {
-  width: 200px;
+  width: 290px;
   height: 200px;
-  border: 1px solid red;
+  border-radius: 25px;
+  box-shadow: 8px 8px 10px var(--shadow-color);
   padding: 10px 0;
+  margin: 1em 2em 3em;
+  transition: transform 0.5s ease, box-shadow 0.2s ease-in-out;
+}
+
+.bookmark-card:hover,
+.bookmark-card:focus-within,
+.bookmark-card:active {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 10px var(--shadow-color);
 }
 
 .bookmark-card h5 {
-    margin: 5px 0;
+  margin: 20px 0;
+}
+
+.tag-container {
+  display: flex;
 }
 
 .tag {
   color: var(--tag-text-color);
   background: var(--tag-color);
   border: 1px solid var(--tag-text-color);
-  width: fit-content;
   padding: 5px 10px;
   border-radius: 25px;
+  margin: 0 0.5em;
 }
